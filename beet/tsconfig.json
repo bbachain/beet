@@ -3,9 +3,7 @@
   "compilerOptions": {
     "baseUrl": "./",
     "outDir": "./dist/cjs",
-    "module": "commonjs",
-    "declarationDir": "./dist/types",
-    "declaration": false
+    "module": "commonjs"
   },
   "include": ["src", "test"]
 }
