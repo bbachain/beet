@@ -1,4 +1,4 @@
-import { FixedSizeBeet } from '@metaplex-foundation/beet'
+import { FixedSizeBeet } from '@bbachain/beet'
 import base58 from 'bs58'
 
 export function encodeFixedBeet<T>(beet: FixedSizeBeet<T>, val: T) {

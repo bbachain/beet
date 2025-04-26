@@ -1,10 +1,10 @@
 {
-  "name": "@metaplex-foundation/beet-solana",
-  "version": "0.4.1",
-  "description": "Solana specific extension for beet, the borsh compatible de/serializer",
+  "name": "@bbachain/beet-bbachain",
+  "version": "0.0.1",
+  "description": "BBAChain specific extension for beet, the borsh compatible de/serializer",
   "sideEffects": false,
-  "main": "dist/cjs/src/beet-solana.js",
-  "types": "dist/types/src/beet-solana.d.ts",
+  "main": "dist/cjs/src/beet-bbachain.js",
+  "types": "dist/types/src/beet-bbachain.d.ts",
   "scripts": {
     "check:publish-ready": "yarn build && yarn test",
     "preversion": "yarn check:publish-ready",
@@ -16,10 +16,10 @@
     "test": "tape dist/cjs/test/*.js",
     "lint": "prettier -c ./src/",
     "lint:fix": "prettier --write ./src",
-    "doc": "rimraf ../docs/beet-solana && typedoc"
+    "doc": "rimraf ../docs/beet-bbachain && typedoc"
   },
-  "repository": "git@github.com:metaplex-foundation/beet-solana.git",
-  "author": "Thorsten Lorenz <thlorenz@gmx.de>",
+  "repository": "git@github.com:bbachain/beet.git",
+  "author": "BBAChain Labs <developers@bbachain.com>",
   "license": "Apache-2.0",
   "directories": {
     "dist": "./dist/src"
@@ -29,10 +29,11 @@
     "dist/types/src/*"
   ],
   "dependencies": {
-    "@metaplex-foundation/beet": ">=0.1.0",
-    "@solana/web3.js": "^1.56.2",
+    "@bbachain/beet": ">=0.0.0",
+    "@bbachain/web3.js": "^1.1.3",
     "bs58": "^5.0.0",
-    "debug": "^4.3.4"
+    "debug": "^4.3.4",
+    "rpc-websockets": "7.11.0"
   },
   "devDependencies": {
     "@types/debug": "^4.1.7",

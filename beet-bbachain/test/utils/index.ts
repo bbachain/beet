@@ -6,13 +6,13 @@ import {
   u16,
   u8,
   utf8String,
-} from '@metaplex-foundation/beet'
+} from '@bbachain/beet'
 import {
   GetProgramAccountsConfig,
   GetProgramAccountsFilter,
   MemcmpFilter,
   PublicKey,
-} from '@solana/web3.js'
+} from '@bbachain/web3.js'
 import base58 from 'bs58'
 import * as util from 'util'
 

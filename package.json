@@ -1,24 +1,24 @@
 {
   "scripts": {
-    "build": "(cd ./beet && yarn build) && (cd ./beet-solana && yarn build)",
+    "build": "(cd ./beet && yarn build) && (cd ./beet-bbachain && yarn build)",
     "postinstall": "patch-package",
-    "test": "yarn test:beet && yarn test:beet-solana",
+    "test": "yarn test:beet && yarn test:beet-bbachain",
     "test:beet": "cd ./beet && yarn test && yarn test:browser",
-    "test:beet-solana": "cd ./beet-solana && yarn test",
-    "doc": "(cd ./beet && yarn doc); (cd ./beet-solana && yarn doc)",
+    "test:beet-bbachain": "cd ./beet-bbachain && yarn test",
+    "doc": "(cd ./beet && yarn doc); (cd ./beet-bbachain && yarn doc)",
     "doc:update": "./sh/update-docs",
     "patch:minipass": "patch-package tap-parser/minipass"
   },
   "workspaces": {
     "packages": [
       "beet",
-      "beet-solana"
+      "beet-bbachain"
     ]
   },
-  "author": "Metaplex Maintainers <contact@metaplex.com>",
-  "homepage": "https://metaplex.com",
+  "author": "BBAChain Labs <developers@bbachain.com>",
+  "homepage": "https://bbachain.com",
   "repository": {
-    "url": "https://github.com/metaplex/beet.git"
+    "url": "https://github.com/bbachain/beet.git"
   },
   "private": true,
   "devDependencies": {

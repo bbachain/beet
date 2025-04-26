@@ -1,8 +1,8 @@
 {
-  "entryPoints": ["src/beet-solana.ts"],
+  "entryPoints": ["src/beet-bbachain.ts"],
   "excludePrivate": true,
   "categorizeByGroup": false,
   "readme": "none",
   "emit": "both",
-  "out": "../docs/beet-solana"
+  "out": "../docs/beet-bbachain"
 }

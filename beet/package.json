@@ -1,5 +1,5 @@
 {
-  "name": "@metaplex-foundation/beet",
+  "name": "@bbachain/beet",
   "version": "0.7.2",
   "description": "Strict borsh compatible de/serializer",
   "sideEffects": false,
@@ -21,8 +21,8 @@
     "doc": "rimraf ../docs/beet && typedoc",
     "doctoc": "doctoc README.md"
   },
-  "repository": "git@github.com:metaplex-foundation/beet.git",
-  "author": "Thorsten Lorenz <thlorenz@gmx.de>",
+  "repository": "git@github.com:bbachain/beet.git",
+  "author": "BBAChain Labs <developers@bbachain.com>",
   "license": "Apache-2.0",
   "directories": {
     "dist": "./dist/src"

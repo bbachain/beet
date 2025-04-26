@@ -1,4 +1,4 @@
-# @metaplex-foundation/beet
+# @bbachain/beet
 
 Strict borsh compatible de/serializer.
 
@@ -75,14 +75,14 @@ that processes dynamic types directly use one of the alternatives, i.e. [borsh-j
 
 ## API
 
-Please find the [API docs here](https://metaplex-foundation.github.io/beet/docs/beet).
+Please find the [API docs here](https://bbachain.github.io/beet/docs/beet).
 
 ## Examples
 
 ### Single Fixed Struct Configuration
 
 ```ts
-import { BeetStruct, i32, u16, u8 } from '@metaplex-foundation/beet'
+import { BeetStruct, i32, u16, u8 } from '@bbachain/beet'
 
 class Result {
   constructor(
@@ -106,7 +106,7 @@ class Result {
 ### Single Fixable Struct Configuration
 
 ```ts
-import { FixableBeetStruct, i32, u16, u8, array } from '@metaplex-foundation/beet'
+import { FixableBeetStruct, i32, u16, u8, array } from '@bbachain/beet'
 
 class Result {
   constructor(
@@ -132,7 +132,7 @@ class Result {
 **NOTE:** uses `Result` struct from the above example for the `results` field of `Trader`
 
 ```ts
-import { BeetStruct, fixedSizeUtf8String } from '@metaplex-foundation/beet'
+import { BeetStruct, fixedSizeUtf8String } from '@bbachain/beet'
 class Trader {
   constructor(
     readonly name: string,
@@ -158,12 +158,12 @@ const [deserializedTrader] = Trader.struct.deserialize(buf)
 
 ### Struct with non-primitive fields
 
-**NOTE:** depends on `beet-solana` extension package for the `PublicKey` implementation
+**NOTE:** depends on `beet-bbachain` extension package for the `PublicKey` implementation
 
 ```ts
-import * as web3 from '@solana/web3.js'
-import * as beet from '@metaplex-foundation/beet'
-import * as beetSolana from '@metaplex-foundation/beet-solana'
+import * as beet from '@bbachain/beet'
+import * as beetBBA from '@bbachain/beet-bbachain'
+import * as web3 from '@bbachain/web3.js'
 
 type InstructionArgs = {
   instructionDiscriminator: number[]
@@ -175,8 +175,8 @@ type InstructionArgs = {
 const createStruct = new beet.BeetArgsStruct<InstructionArgs>(
   [
     ['instructionDiscriminator', beet.fixedSizeArray(beet.u8, 8)],
-    ['authority', beetSolana.publicKey],
-    ['maybePublickKey', beet.coption(beetSolana.publicKey)],
+    ['authority', beetBBA.publicKey],
+    ['maybePublickKey', beet.coption(beetBBA.publicKey)],
   ],
   'InstructionArgs'
 )
@@ -187,7 +187,7 @@ const createStruct = new beet.BeetArgsStruct<InstructionArgs>(
 #### Fixed Size
 
 ```ts
-import { u8 } from '@metaplex-foundation/beet'
+import { u8 } from '@bbachain/beet'
 const n = 1
 const buf = Buffer.alloc(u8.byteSize)
 u8.write(buf, 0, n)
@@ -197,7 +197,7 @@ u8.read(buf, 0) // === 1
 #### Dynamic Size
 
 ```ts
-import { u8, array } from '@metaplex-foundation/beet'
+import { u8, array } from '@bbachain/beet'
 const xs = [ 1, 2 ]
 const beet = array(u8)
 const fixedBeet = beet.toFixedFromValue(xs)
@@ -275,7 +275,7 @@ const collectionInfoBeet = beet.dataEnum<CollectionInfoRecord>([
     new beet.FixableBeetArgsStruct<CollectionInfoRecord['V1']>(
       [
         ['symbol', beet.utf8String],
-        ['verifiedCreators', beet.array(beetSolana.publicKey)],
+        ['verifiedCreators', beet.array(beetBBA.publicKey)],
         ['whitelistRoot', beet.uniformFixedSizeArray(beet.u8, 32)],
       ],
       'CollectionInfoRecord["V1"]'
@@ -285,7 +285,7 @@ const collectionInfoBeet = beet.dataEnum<CollectionInfoRecord>([
   [
     'V2',
     new beet.BeetArgsStruct<CollectionInfoRecord['V2']>(
-      [['collectionMint', beetSolana.publicKey]],
+      [['collectionMint', beetBBA.publicKey]],
       'CollectionInfoRecord["V2"]'
     ),
   ],
