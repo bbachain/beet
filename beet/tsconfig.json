@@ -5,7 +5,7 @@
     "outDir": "./dist/cjs",
     "module": "commonjs",
     "declarationDir": "./dist/types",
-    "declaration": false
+    "declaration": true
   },
   "include": ["src", "test"]
 }
