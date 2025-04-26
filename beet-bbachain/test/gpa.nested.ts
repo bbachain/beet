@@ -8,7 +8,7 @@ import {
   Trader,
   withDecodedBytes,
 } from './utils'
-import { GpaBuilder } from '../src/beet-solana'
+import { GpaBuilder } from '../src/beet-bbachain'
 
 test('gpa: fixed struct nested inside fixed struct', (t) => {
   let gpaBuilder: GpaBuilder<Trader> = GpaBuilder.fromStruct<Trader>(

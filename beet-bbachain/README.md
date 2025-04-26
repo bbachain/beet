@@ -1,14 +1,14 @@
-# @metaplex-foundation/beet-solana
+# @bbachain/beet-bbachain
 
-Solana specific extension for beet, the borsh compatible de/serializer
+BBAChain specific extension for beet, the borsh compatible de/serializer
 
 ## API
 
-Please find the [API docs here](https://metaplex-foundation.github.io/beet/docs/beet-solana).
+Please find the [API docs here](https://bbachain.github.io/beet/docs/beet-bbachain).
 
 ## GPA Builders
 
-solana-beet uses `beet`s knowledge about account layouts to provide `GpaBuilder`s for
+bbachain-beet uses `beet`s knowledge about account layouts to provide `GpaBuilder`s for
 them which allow to filter by account data size and content.
 
 1. Create a GPA Builder via `const gpaBuilder = GpaBuilder.fromStruct(programId, accountStruct)`
@@ -103,7 +103,7 @@ const account = await gpaBuilder
 
 ## PublicKey
 
-solana-beet provides a de/serializer for solana public keys.
+beet-bbachain provides a de/serializer for bbachain public keys.
 They can either be used directly or as part of a struct.
 
 ### Examples
@@ -111,7 +111,7 @@ They can either be used directly or as part of a struct.
 #### Using PublicKey Directly
 
 ```ts
-import { publicKey } from '@metaplex-foundation/beet-solana'
+import { publicKey } from '@bbachain/beet-bbachain'
 
 const generatedKey  = Keypair.generate().publicKey
 const buf = Buffer.alloc(publicKey.byteSize)
@@ -122,9 +122,9 @@ beet.read(buf, 0) // same as generatedKey
 #### PublicKey as part of a Struct Configuration
 
 ```ts
-import * as web3 from '@solana/web3.js'
-import * as beet from '@metaplex-foundation/beet'
-import * as beetSolana from '@metaplex-foundation/beet-solana'
+import * as beet from '@bbachain/beet'
+import * as beetBBA from '@bbachain/beet-bbachain'
+import * as web3 from '@bbachain/web3.js'
 
 type InstructionArgs = {
   authority: web3.PublicKey
@@ -132,7 +132,7 @@ type InstructionArgs = {
 
 const createStruct = new beet.BeetArgsStruct<InstructionArgs>(
   [
-    ['authority', beetSolana.publicKey]
+    ['authority', beetBBA.publicKey]
   ],
   'InstructionArgs'
 )

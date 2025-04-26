@@ -5,13 +5,13 @@ import {
   FixableBeetStruct,
   FixedSizeBeet,
   isFixedSizeBeet,
-} from '@metaplex-foundation/beet'
+} from '@bbachain/beet'
 import {
   Connection,
   GetProgramAccountsConfig,
   GetProgramAccountsFilter,
   PublicKey,
-} from '@solana/web3.js'
+} from '@bbachain/web3.js'
 import { strict as assert } from 'assert'
 import { logTrace } from '../utils'
 import { encodeFixedBeet } from './util'

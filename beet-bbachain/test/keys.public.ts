@@ -1,6 +1,6 @@
-import { FixedSizeBeet } from '@metaplex-foundation/beet'
-import { PublicKey, Keypair } from '@solana/web3.js'
-import { publicKey } from '../src/beet-solana'
+import { FixedSizeBeet } from '@bbachain/beet'
+import { PublicKey, Keypair } from '@bbachain/web3.js'
+import { publicKey } from '../src/beet-bbachain'
 import test from 'tape'
 
 function checkCases(

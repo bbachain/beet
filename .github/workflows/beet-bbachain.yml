@@ -1,4 +1,4 @@
-name: Build Lint and Test Beet Solana
+name: Build Lint and Test Beet BBAChain
 
 on:
   push:
@@ -32,7 +32,7 @@ jobs:
           yarn run build
 
       - name: yarn build, lint and test
-        working-directory: ./beet-solana
+        working-directory: ./beet-bbachain
         run: |
           yarn run build
           yarn run lint
