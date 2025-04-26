@@ -2,41 +2,40 @@ name: Build Lint and Test Beet Solana
 
 on:
   push:
-    branches: [ master ]
+    branches: [main]
   pull_request:
-    branches: [ master ]
+    branches: [main]
 
 jobs:
   build-lint-and-test-beet:
-
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        node-version: [14.x, 16.x]
+        node-version: [20.x]
 
     steps:
-    - uses: actions/checkout@v1
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
+      - uses: actions/checkout@v1
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
 
-    - name: yarn install in root
-      working-directory: ./
-      run: |
-        yarn install
+      - name: yarn install in root
+        working-directory: ./
+        run: |
+          yarn install
 
-    - name: yarn build beet dependency
-      working-directory: ./beet
-      run: |
-        yarn run build
+      - name: yarn build beet dependency
+        working-directory: ./beet
+        run: |
+          yarn run build
 
-    - name: yarn build, lint and test
-      working-directory: ./beet-solana
-      run: |
-        yarn run build
-        yarn run lint
-        yarn run test
-      env:
-        CI: true
+      - name: yarn build, lint and test
+        working-directory: ./beet-solana
+        run: |
+          yarn run build
+          yarn run lint
+          yarn run test
+        env:
+          CI: true
